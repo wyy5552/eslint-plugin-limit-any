@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-limit-any",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An ESLint plugin to limit the usage of 'any' types in TypeScript. It helps to enforce strict typing.",
   "main": "eslint-plugin-limit-any.js",
   "scripts": {
