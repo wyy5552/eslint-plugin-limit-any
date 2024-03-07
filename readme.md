@@ -11,17 +11,22 @@ npm i eslint --save-dev
 ```
 
 Next, install eslint-plugin-limit-any:
+
 ```bash
 npm install eslint-plugin-limit-any --save-dev
 ```
 
 # Usage
+
+## count
+The count rule limits the number of 'any' types in your TypeScript code. You can configure this rule in your ESLint configuration file.
+
 ```javascript
 // eslint.config.js
 "use strict";
 const tsParser = require("@typescript-eslint/parser");
 // Import the ESLint plugin locally
-const limitAnyRule = require("./eslint-plugin-limit-any");
+const limitAnyRule = require("eslint-plugin-limit-any");
 
 module.exports = [
   {
@@ -33,7 +38,7 @@ module.exports = [
     },
     plugins: { "limit-any": limitAnyRule },
     rules: {
-      "limit-any/count": ["error",4],
+      "limit-any/count": ["error", 4],
     },
   },
 ];
@@ -47,13 +52,14 @@ module.exports = [
     "node": true
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint", "limit-any"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
-  ]
+  ],
+  "rules": {
+    "limit-any/count": ["error", 4]
+  }
 }
 ```
